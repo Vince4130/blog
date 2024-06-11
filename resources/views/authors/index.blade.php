@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Author')
+@section('title', 'Authors List')
 
 @section('content')
     <table>
@@ -10,12 +10,15 @@
             <th>Firstname</th>
             <th>Birthdate</th>
         </tr>
+        <?php foreach ($authors as $author) : ?>
         <tr>
-            <td><?= $author->id ?></td>
+            <td><a href="{{ route('authors.show', compact('author')) }}"><?= $author->id ?></a></td>
             <td><?= $author->lastname ?></td>
             <td><?= $author->firstname ?></td>
             <td><?= $author->birth ?></td>
         </tr>
+        <?php endforeach; ?>
     </table>
-    <button type="button" onclick=window.location.href="{{ route('authors.list') }}">Home</button>
+    <a href="{{ route('authors.create') }}">Add an Author</a>
+    <a href="{{ route('home') }}">Home</a>
 @endsection
