@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+
 
 class AuthorController extends Controller
 {
     
     public function home()
     {
-        return view('home');
+        return view('authors.home');
     }
     
     /**
@@ -52,6 +54,8 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
+        // $author = Author::find($id);
+        
         return view('authors.show', compact('author'));
     }
 
@@ -79,7 +83,7 @@ class AuthorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request, Author $author)
+    public function destroy(Author $author)
     {
         $author->delete();
 
