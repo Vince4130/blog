@@ -12,7 +12,7 @@
         </tr>
         <?php foreach ($authors as $author) : ?>
         <tr>
-            <td><a href="{{ route('authors.show', compact('author')) }}"><?= $author->id ?></a></td>
+            <td><a href='{{ route('authors.show', $author) }}'>show</a></td>
             <td><?= $author->lastname ?></td>
             <td><?= $author->firstname ?></td>
             <td><?= $author->birth ?></td>
@@ -20,5 +20,5 @@
         <?php endforeach; ?>
     </table>
     <a href="{{ route('authors.create') }}">Add an Author</a>
-    <a href="{{ route('home') }}">Home</a>
+    <a href="{{ route('authors.home') }}">Home</a>
 @endsection
