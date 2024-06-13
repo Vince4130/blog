@@ -12,7 +12,7 @@ class AuthorController extends Controller
     
     public function home()
     {
-        return view('authors.home');
+        return view('home');
     }
     
     /**
@@ -42,6 +42,8 @@ class AuthorController extends Controller
 
         $author->lastname  = $request->input('lastname');
         $author->firstname = $request->input('firstname');
+        $author->nickname  = $request->input('nickname');
+        $author->email     = $request->input('email');
         $author->birth     = $request->input('birth');
 
         $author->save();
@@ -74,6 +76,8 @@ class AuthorController extends Controller
     {
         $author->lastname  = $request->input('lastname');
         $author->firstname = $request->input('firstname');
+        $author->nickname  = $request->input('nickname');
+        $author->email     = $request->input('email');
 
         $author->save();
 
