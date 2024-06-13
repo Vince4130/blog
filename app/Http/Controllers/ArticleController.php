@@ -4,24 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
-    
-    
+
     public function home()
     {
         return view('home');
     }
-    
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $articles = Article::all();
-        // dd($articles);
-        return view('articles.index', compact('articles'));
+        $articlesAuthors = db::table('articles')
+            ->select('articles.id', 'title', 'content', 'authors.lastname', 'authors.firstname')
+            ->join('authors', 'authors.id', '=', 'articles.author_id')->get();
+
+        return view('articles.index', ['articlesAuthors' => $articlesAuthors]);
     }
 
     /**
