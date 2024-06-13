@@ -4,13 +4,15 @@
 
 
 @section('content')
-    <div class="main">
-        Bienvenu sur le site
+<div class="container">
+    <div class="card">
+        <div class="card-body bg-light">
+            <h1>Blog NFA042</h1>
+            <div class="mb-3">
+                <a class="btn btn-dark" href="{{ route('authors.index') }}"><i class="fa-solid fa-user-group fa-lg p-2"></i>Authors List</a>
+                <a class="btn btn-dark" href="{{ route('authors.create') }}"><i class="fa-solid fa-user-plus fa-lg p-2"></i>Add an Author</a>
+            </div>
+        </div>
     </div>
-    <div class="link">
-        <p><button type="button" onclick=window.location.href="{{ route('authors.index') }}">Authors List</button></p>
-    </div>
-    <div class="link">
-        <p><button type="button" onclick=window.location.href="{{ route('authors.create') }}">Add an Author</button></p>
-    </div>
+</div>
 @endsection
