@@ -7,12 +7,21 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    
+    
+    public function home()
+    {
+        return view('home');
+    }
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $articles = Article::all();
+        // dd($articles);
+        return view('articles.index', compact('articles'));
     }
 
     /**
