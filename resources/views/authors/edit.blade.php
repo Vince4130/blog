@@ -32,8 +32,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">Mail adress :</label>
-                    <input class="form-control" type="text" name="email" id="email" value="{{ $author->email ?? 'N/A'}}">
+                    <label for="mail" class="form-label">Mail adress :</label>
+                    <input class="form-control" type="text" name="mail" id="mail" value="{{ $author->mail ?? 'N/A'}}">
                 </div>
 
                 <div class="mb-3 add__submit">
