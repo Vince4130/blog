@@ -8,23 +8,25 @@
     <div class="card">
         <div class="card-body bg-light">
             <h4>Articles</h4>
-            <?php foreach($articles as $article) : ?>
-            <div class="accordion" id="accordionExample">
+            <?php foreach($articlesAuthors as $article) : ?>
+            <div class="accordion p-2" id="accordion<?= $article->id ?>">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $article->id ?>" aria-expanded="false" aria-controls="collapse<?= $article->id ?>">
                             Title : <?= $article->title ?>
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div id="collapse<?= $article->id ?>" class="accordion-collapse collapse" data-bs-parent="#accordion<?= $article->id ?>">
                         <div class="accordion-body">
                             <div class="content">
                                 <strong>Content : </strong> 
                                 <?= $article->content ?>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, magni unde dolorum odio vero aspernatur sint, cum, corrupti numquam voluptate id omnis incidunt illum excepturi? Quos corporis porro quo consequatur.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem a vero eius eligendi provident odio animi adipisci vitae quo voluptates eum excepturi dolorum delectus, fugiat sequi sed? Voluptatibus, earum corporis.
                             </div>
                             <div class="author">
                                 <strong>Author : </strong> 
-                                <?= $article->author_id ?>
+                                <?= $article->firstname.' '.$article->lastname ?>
                             </div>
                         </div>
                     </div>
