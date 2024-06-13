@@ -43,7 +43,7 @@ class AuthorController extends Controller
         $author->lastname  = $request->input('lastname');
         $author->firstname = $request->input('firstname');
         $author->nickname  = $request->input('nickname');
-        $author->email     = $request->input('email');
+        $author->mail      = $request->input('mail');
         $author->birth     = $request->input('birth');
 
         $author->save();
@@ -77,7 +77,7 @@ class AuthorController extends Controller
         $author->lastname  = $request->input('lastname');
         $author->firstname = $request->input('firstname');
         $author->nickname  = $request->input('nickname');
-        $author->email     = $request->input('email');
+        $author->mail      = $request->input('mail');
 
         $author->save();
 
