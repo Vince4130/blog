@@ -17,7 +17,7 @@ class ArticleSeeder extends Seeder
         DB::table('articles')->insert([
             'title' => 'First Article',
             'content' => 'Welcome in my blog',
-            'author_id' => 13,
+            'author_id' => 27,
             'timestamp' => '2024-06-11 17:20:34',
         ]);
     }
