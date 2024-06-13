@@ -36,12 +36,13 @@
     </div>
     <div class="mb-3 list__submit">
         <a class="btn btn-dark" href="{{ route('authors.create') }}"><i class="fa-solid fa-user-plus fa-lg p-2"></i>Add an Author</a>
+        <a class="navbar-brand" href="{{ route('authors.home') }}"><i class="fas fa-home"></i></a>
     </div>
 </div>
 <script>
     let mytable = new DataTable('#author__table', {
         order: [
-            [2, 'desc']
+            [0, 'asc']
         ],
         responsive: true
     });
