@@ -7,8 +7,7 @@
     <div class="container">
     <div class="card">
         <div class="card-body bg-light">
-            <h4>Authors List</h4>
-            <!-- Liste -->
+            <h4>Author Details</h4>
             <table id="author__table" class="table table-striped authortable">
                 <thead>
                     <tr>
@@ -32,7 +31,8 @@
         </div>
     </div>
     <div class="mb-3 list__submit">
-        <a class="navbar-brand" href="{{ route('authors.index') }}"><i class="fas fa-home"></i></a>
+        <a class="btn btn-dark" href=""><i class="fa-solid fa-folder-plus fa-lg p-2"></i>Add an article</a>
+        <a class="btn btn-dark" href="{{ route('authors.index') }}"><i class="fa-solid fa-rotate-left white p-2"></i>Back</a>
     </div>
 </div>
 @endsection

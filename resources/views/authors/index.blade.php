@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Authors List')
+@section('title', 'Authors')
 
 @section('content')
 <div class="container">
     <div class="card">
         <div class="card-body bg-light">
-            <h4>Authors List</h4>
+            <h4>Authors</h4>
             <!-- Liste -->
-            <table id="author__table" class="table table-striped authortable">
+            <table id="author__table" class="table table-light authortable table-hover">
                 <thead>
                     <tr>
                         <th>Lastname</th>
@@ -36,7 +36,7 @@
     </div>
     <div class="mb-3 list__submit">
         <a class="btn btn-dark" href="{{ route('authors.create') }}"><i class="fa-solid fa-user-plus fa-lg p-2"></i>Add an Author</a>
-        <a class="navbar-brand" href="{{ route('authors.home') }}"><i class="fas fa-home"></i></a>
+        <a class="navbar-brand" href="{{ route('home') }}"><i class="fas fa-home fa-xl"></i></a>
     </div>
 </div>
 <script>
