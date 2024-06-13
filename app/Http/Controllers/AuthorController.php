@@ -77,6 +77,7 @@ class AuthorController extends Controller
         $author->lastname  = $request->input('lastname');
         $author->firstname = $request->input('firstname');
         $author->nickname  = $request->input('nickname');
+        $author->birth     = $request->input('birth');
         $author->mail      = $request->input('mail');
 
         $author->save();
