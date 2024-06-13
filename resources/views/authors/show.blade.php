@@ -12,20 +12,20 @@
             <table id="author__table" class="table table-striped authortable">
                 <thead>
                     <tr>
-                        {{-- <th>#</th> --}}
                         <th>Lastname</th>
                         <th>Firstname</th>
-                        <th>Birthdate</th>
+                        <th>Nickname</th>
                         <th>Edit</th>
+                        <th>Contact</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        {{-- <td><?= $author->id ?></td> --}}
                         <td><?= $author->lastname ?></td>
                         <td><?= $author->firstname ?></td>
-                        <td><?= $author->birth ?></td>
+                        <td><?= isset($author->nickname) ?  $author->nickname : 'N/A' ?></td>
                         <td><a class="navbar-brand" href="{{ route('authors.edit', $author) }}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a></td>
+                        <td><a class="navbar-brand" href="mailto:<?= isset($author->email) ? $author->email : ''?>"><i class="fa-solid fa-envelope fa-lg"></i></a></td>
                     </tr>
                 </tbody>
             </table>

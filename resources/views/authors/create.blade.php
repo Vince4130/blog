@@ -22,8 +22,18 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="nickname" class="form-label">Nickname :</label>
+                    <input type="text" class="form-control" id="nickname" name="nickname">
+                </div>
+
+                <div class="mb-3">
                     <label for="birth" class="form-label">Birthdate :</label>
                     <input type="date" class="form-control" name="birth" id="birth">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Mail adress :</label>
+                    <input class="form-control" type="text" name="email" id="email">
                 </div>
 
                 <div class="mb-3 add__submit">
