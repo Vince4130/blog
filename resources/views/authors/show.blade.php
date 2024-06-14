@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="mb-3 list__submit">
-        <a class="btn btn-dark" href=""><i class="fa-solid fa-folder-plus fa-lg p-2"></i>Add an article</a>
+        <a class="btn btn-dark" href="{{ route('articles.create') }}"><i class="fa-solid fa-folder-plus fa-lg p-2"></i>Add an article</a>
         <a class="btn btn-dark" href="{{ route('authors.index') }}"><i class="fa-solid fa-rotate-left white p-2"></i>Back</a>
     </div>
 </div>
