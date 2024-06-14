@@ -8,6 +8,7 @@
     <div class="card">
         <div class="card-body bg-light">
             <h4>Articles</h4>
+            <?php if(count($articlesAuthors) > 0) : ?>
             <?php foreach($articlesAuthors as $article) : ?>
             <div class="accordion p-2" id="accordion<?= $article->id ?>">
                 <div class="accordion-item">
@@ -33,6 +34,11 @@
                 </div>
             </div>
             <?php endforeach ?>
+            <?php else : ?>
+                <div class="mb-3">
+                    <h4>There are no articles saved</h4>
+                </div>
+            <?php endif ?>
             <div class="mb-3 list__submit">
                 <a class="navbar-brand" href="{{ route('home') }}"><i class="fas fa-home fa-xl"></i></a>
             </div>

@@ -8,30 +8,36 @@
         <div class="card-body bg-light">
             <h4>Authors</h4>
             <!-- Liste -->
-            <table id="author__table" class="table table-light authortable table-hover">
-                <thead>
-                    <tr>
-                        <th>Lastname</th>
-                        <th>Firstname</th>
-                        <th>Nickname</th>
-                        <th>Email</th>
-                        <th>Show</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($authors as $author) : ?>
+            <?php if (count($authors) > 0) : ?>
+                <table id="author__table" class="table table-light authortable table-hover">
+                    <thead>
                         <tr>
-                            <td><?= $author->lastname ?></td>
-                            <td><?= $author->firstname ?></td>
-                            <td><?= $author->nickname ?? 'N/A'?></td>
-                            <td><?= ($author->mail != null) ? $author->mail : 'N/A'?></td>
-                            <th><a class="navbar-brand" href="{{ route('authors.show', $author) }}"><i class="fa-solid fa-circle-user fa-xl"></i></i></a></th>
-                            <th><a class="navbar-brand" href="{{ route('authors.destroy', $author) }}"><i class="fa-regular fa-trash-can fa-lg"></i></a></th>
+                            <th>Lastname</th>
+                            <th>Firstname</th>
+                            <th>Nickname</th>
+                            <th>Email</th>
+                            <th>Show</th>
+                            <th>Delete</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($authors as $author) : ?>
+                            <tr>
+                                <td><?= $author->lastname ?></td>
+                                <td><?= $author->firstname ?></td>
+                                <td><?= $author->nickname ?? 'N/A' ?></td>
+                                <td><?= ($author->mail != null) ? $author->mail : 'N/A' ?></td>
+                                <th><a class="navbar-brand" href="{{ route('authors.show', $author) }}"><i class="fa-solid fa-circle-user fa-xl"></i></i></a></th>
+                                <th><a class="navbar-brand" href="{{ route('authors.destroy', $author) }}"><i class="fa-regular fa-trash-can fa-lg"></i></a></th>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            <?php else : ?>
+                <div class="mb-3">
+                    <h4>No author yet registered</h4>
+                </div>
+            <?php endif ?>
         </div>
     </div>
     <div class="mb-3 list__submit">
