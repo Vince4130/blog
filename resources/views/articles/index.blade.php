@@ -40,6 +40,7 @@
                 </div>
             <?php endif ?>
             <div class="mb-3 list__submit">
+                <a class="btn btn-dark" href="{{ route('authors.index') }}"><i class="fa-solid fa-user-group fa-lg p-2"></i>Authors</a>
                 <a class="navbar-brand" href="{{ route('home') }}"><i class="fas fa-home fa-xl"></i></a>
             </div>
         </div>

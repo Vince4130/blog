@@ -42,6 +42,7 @@
     </div>
     <div class="mb-3 list__submit">
         <a class="btn btn-dark" href="{{ route('authors.create') }}"><i class="fa-solid fa-user-plus fa-lg p-2"></i>Add an Author</a>
+        <a class="btn btn-dark" href="{{ route('articles.index') }}"><i class="fa-solid fa-newspaper fa-lg p-2"></i>Articles</a>
         <a class="navbar-brand" href="{{ route('home') }}"><i class="fas fa-home fa-xl"></i></a>
     </div>
 </div>

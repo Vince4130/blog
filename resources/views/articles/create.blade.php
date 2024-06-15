@@ -10,7 +10,7 @@
             <h4>Create Your Article</h4>
             <form action="{{ route('articles.store') }}" id="myForm" name="myForm" class="myForm" method="POST">
                 @csrf
-
+                <input type="hidden" name="author_id" id="author_id" value="<?= $author->id ?>">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title :</label>
                     <input type="text" class="form-control" id="title" name="title">

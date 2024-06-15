@@ -25,7 +25,7 @@ Route::prefix('/blog')->group(function () {
     Route::prefix('/articles')->group(function () {
         Route::get('/index', [ArticleController::class, 'index'])->name('articles.index');
         Route::get('/show/{article}', [ArticleController::class, 'show'])->name('articles.show');
-        Route::get('/create', [ArticleController::class, 'create'])->name('articles.create');
+        Route::get('/create/{author}', [ArticleController::class, 'create'])->name('articles.create');
         Route::post('/store', [ArticleController::class, 'store'])->name('articles.store');
         Route::get('/{article}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
         Route::post('/update/{article}', [ArticleController::class, 'update'])->name('articles.update');

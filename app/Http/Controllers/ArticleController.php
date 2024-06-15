@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,9 +30,11 @@ class ArticleController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(int $author_id)
     {
-        return view('articles.create');
+        $author = Author::find($author_id);
+       
+        return view('articles.create', ['author' => $author]);
     }
 
     /**
@@ -39,7 +42,16 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $article = new Article();
+
+        $article->title     = $request->input('title');
+        $article->content   = $request->input('content');
+        $article->author_id = $request->input('author_id');
+        
+        $article->save();
+
+        return redirect(route('articles.index'));
+
     }
 
     /**
