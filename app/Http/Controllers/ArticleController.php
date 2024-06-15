@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Author;
+use App\Http\Requests\StoreArticleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\View\View;
+use Illuminate\Support\Collection;
 
 class ArticleController extends Controller
 {
@@ -40,7 +44,7 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreArticleRequest $request)
     {
         $article = new Article();
 
@@ -48,9 +52,18 @@ class ArticleController extends Controller
         $article->content   = $request->input('content');
         $article->author_id = $request->input('author_id');
         
-        $article->save();
+        try {
 
-        return redirect(route('articles.index'));
+            if ($article->save()) {
+                session()->flash('success', "Your article has been successfully recorded");
+                return redirect(route('articles.index'));
+            }
+        } catch (\exception $e) {
+            Log::error($e->getmessage());
+            session()->flash('error', "Something wen't wrong, your article hasn't been recorded");
+        }
+
+        return redirect(route('articles.create'));
 
     }
 

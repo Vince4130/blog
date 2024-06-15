@@ -5,6 +5,7 @@
 
 @section('content')
 <div class="container">
+    @include('flash-message')
     <div class="card">
         <div class="card-body bg-light">
             <h4>Articles</h4>
@@ -22,8 +23,6 @@
                             <div class="content">
                                 <strong>Content : </strong> 
                                 <?= $article->content ?>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, magni unde dolorum odio vero aspernatur sint, cum, corrupti numquam voluptate id omnis incidunt illum excepturi? Quos corporis porro quo consequatur.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem a vero eius eligendi provident odio animi adipisci vitae quo voluptates eum excepturi dolorum delectus, fugiat sequi sed? Voluptatibus, earum corporis.
                             </div>
                             <div class="author">
                                 <strong>Author : </strong> 

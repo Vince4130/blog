@@ -4,6 +4,7 @@
 
 @section('content')
 <div class="container">
+    @include('flash-message')
     <div class="card">
         <div class="card-body bg-light">
             <h4>Authors</h4>

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAuthorRequest;
 use App\Models\Author;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Exceptions;
 
 
 class AuthorController extends Controller
@@ -36,7 +40,7 @@ class AuthorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreAuthorRequest $request)
     {
         $author = new Author();
 
@@ -45,10 +49,20 @@ class AuthorController extends Controller
         $author->nickname  = $request->input('nickname');
         $author->mail      = $request->input('mail');
         $author->birth     = $request->input('birth');
+        
+        try {
 
-        $author->save();
+            if($author->save()) {
+                session()->flash('success', "Your have been successfully recorded");
+                return redirect(route('authors.index'));
+            }
 
-        return redirect(route('authors.index'));
+        } catch (\exception $e) {
+            Log::error($e->getmessage());
+            session()->flash('error', "Something wen't wrong, your haven't been recorded");
+        }
+
+        return redirect(route('authors.create'));
     }
 
     /**

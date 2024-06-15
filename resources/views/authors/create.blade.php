@@ -5,6 +5,7 @@
 @section('content')
 
 <div class="container">
+    @include('flash-message')
     <div class="card">
         <div class="card-body bg-light">
             <h4>Add an Author</h4>
@@ -13,12 +14,18 @@
 
                 <div class="mb-3">
                     <label for="lastname" class="form-label">Lastname :</label>
-                    <input type="text" class="form-control" id="lastname" name="lastname">
+                    <input type="text" class="form-control @error('lastname') is-invalid @enderror" id="lastname" name="lastname" value="{{ old('lastname') }}">
+                    @error('lastname')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="firstname" class="form-label">Firstname :</label>
-                    <input type="text" class="form-control" id="firstname" name="firstname">
+                    <input type="text" class="form-control @error('firstname') is-invalid @enderror" id="firstname" name="firstname" value="{{ old('firstname') }}">
+                    @error('firstname')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -28,7 +35,10 @@
 
                 <div class="mb-3">
                     <label for="birth" class="form-label">Birthdate :</label>
-                    <input type="date" class="form-control" name="birth" id="birth">
+                    <input type="date" class="form-control @error('birth') is-invalid @enderror" name="birth" id="birth" value="{{ old('birth') }}">
+                    @error('birth')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
