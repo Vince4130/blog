@@ -22,7 +22,7 @@
                         <div class="accordion-body">
                             <div class="content">
                                 <strong>Content : </strong> 
-                                <?= $article->content ?>
+                                <?= nl2br($article->content) ?>
                             </div>
                             <div class="author">
                                 <strong>Author : </strong> 
@@ -33,6 +33,9 @@
                 </div>
             </div>
             <?php endforeach ?>
+            <div>
+                {{ $articlesAuthors->links() }}
+            </div>
             <?php else : ?>
                 <div class="mb-3">
                     <h4>There are no articles saved</h4>

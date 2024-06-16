@@ -26,7 +26,7 @@ class ArticleController extends Controller
     {
         $articlesAuthors = db::table('articles')
             ->select('articles.id', 'title', 'content', 'authors.lastname', 'authors.firstname')
-            ->join('authors', 'authors.id', '=', 'articles.author_id')->get();
+            ->join('authors', 'authors.id', '=', 'articles.author_id')->paginate(5);
 
         return view('articles.index', ['articlesAuthors' => $articlesAuthors]);
     }
@@ -34,9 +34,9 @@ class ArticleController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(int $author_id)
+    public function create(Author $author)
     {
-        $author = Author::find($author_id);
+        $author = Author::find($author->id);
        
         return view('articles.create', ['author' => $author]);
     }
