@@ -20,11 +20,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><?= $author->lastname ?></td>
-                        <td><?= $author->firstname ?></td>
-                        <td><?= isset($author->nickname) ?  $author->nickname : 'N/A' ?></td>
+                        <td>{{ $author->lastname }}</td>
+                        <td>{{ $author->firstname }}</td>
+                        <td>{{ isset($author->nickname) ?  $author->nickname : 'N/A' }}</td>
                         <td><a class="navbar-brand" href="{{ route('authors.edit', $author) }}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a></td>
-                        <td><a class="navbar-brand" href="mailto:<?= isset($author->mail) ? $author->mail : ''?>"><i class="fa-solid fa-envelope fa-lg"></i></a></td>
+                        <td><a class="navbar-brand" href="mailto:{{ isset($author->mail) ? $author->mail : ''}}"><i class="fa-solid fa-envelope fa-lg"></i></a></td>
                     </tr>
                 </tbody>
             </table>

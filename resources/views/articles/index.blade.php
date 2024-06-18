@@ -9,38 +9,39 @@
     <div class="card">
         <div class="card-body bg-light">
             <h4>Articles</h4>
-            <?php if(count($articlesAuthors) > 0) : ?>
-            <?php foreach($articlesAuthors as $article) : ?>
-            <div class="accordion p-2" id="accordion<?= $article->id ?>">
+            @if(count($articlesAuthors) > 0)
+            
+            @foreach($articlesAuthors as $article)
+            <div class="accordion p-2" id="accordion{{ $article->id }}">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $article->id ?>" aria-expanded="false" aria-controls="collapse<?= $article->id ?>">
-                            Title : <?= $article->title ?>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $article->id }}" aria-expanded="false" aria-controls="collapse{{ $article->id }}">
+                            Title : {{ $article->title }} 
                         </button>
                     </h2>
-                    <div id="collapse<?= $article->id ?>" class="accordion-collapse collapse" data-bs-parent="#accordion<?= $article->id ?>">
+                    <div id="collapse{{ $article->id }}" class="accordion-collapse collapse" data-bs-parent="#accordion{{ $article->id }}">
                         <div class="accordion-body">
                             <div class="content">
                                 <strong>Content : </strong> 
-                                <?= nl2br($article->content) ?>
+                                {{ nl2br($article->content) }}
                             </div>
                             <div class="author">
                                 <strong>Author : </strong> 
-                                <?= $article->firstname.' '.$article->lastname ?>
+                                {{ $article->firstname.' '.$article->lastname }}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php endforeach ?>
+            @endforeach
             <div>
                 {{ $articlesAuthors->links() }}
             </div>
-            <?php else : ?>
+            @else
                 <div class="mb-3">
                     <h4>There are no articles saved</h4>
                 </div>
-            <?php endif ?>
+            @endif
             <div class="mb-3 list__submit">
                 <a class="btn btn-dark" href="{{ route('authors.index') }}"><i class="fa-solid fa-user-group fa-lg p-2"></i>Authors</a>
                 <a class="navbar-brand" href="{{ route('home') }}"><i class="fas fa-home fa-xl"></i></a>

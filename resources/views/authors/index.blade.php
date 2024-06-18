@@ -9,7 +9,7 @@
             <div class="card-body bg-light">
                 <h4>Authors</h4>
                 <!-- Liste -->
-                <?php if (count($authors) > 0) : ?>
+               @if (count($authors) > 0)
                 <table id="author__table" class="table table-light authortable table-hover">
                     <thead>
                         <tr>
@@ -22,29 +22,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($authors as $author) : ?>
+                        @foreach ($authors as $author)
                         <tr>
-                            <td><?= $author->lastname ?></td>
-                            <td><?= $author->firstname ?></td>
-                            <td><?= $author->nickname ?? 'N/A' ?></td>
-                            <td><?= $author->mail != null ? $author->mail : 'N/A' ?></td>
+                            <td>{{ $author->lastname }}</td>
+                            <td>{{ $author->firstname}}</td>
+                            <td>{{ $author->nickname ?? 'N/A' }}</td>
+                            <td>{{ $author->mail != null ? $author->mail : 'N/A' }}</td>
                             <th><a class="navbar-brand" href="{{ route('authors.show', $author) }}"><i
                                         class="fa-solid fa-circle-user fa-xl"></i></i></a></th>
                             <th><a class="navbar-brand" href="{{ route('authors.destroy', $author) }}"><i
                                         class="fa-regular fa-trash-can fa-lg"></i></a></th>
                         </tr>
-                        <?php endforeach ?>
+                        @endforeach
                     </tbody>
                 </table>
                 <!-- Pagination Links -->
                 <div>
                     {{ $authors->links() }}
                 </div>
-                <?php else : ?>
+                @else
                 <div class="mb-3">
                     <h4>No author yet registered</h4>
                 </div>
-                <?php endif ?>
+                @endif
             </div>
         </div>
         <div class="mb-3 list__submit">
