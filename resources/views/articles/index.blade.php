@@ -23,7 +23,7 @@
                         <div class="accordion-body">
                             <div class="content">
                                 <strong>Content : </strong> 
-                                {{ nl2br($article->content) }}
+                                {!! nl2br(e($article->content)) !!}
                             </div>
                             <div class="author">
                                 <strong>Author : </strong> 
