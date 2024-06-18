@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAuthorRequest;
+use App\Models\Article;
 use App\Models\Author;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Exceptions;
 
@@ -70,9 +72,13 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        // $author = Author::find($id);
-        
-        return view('authors.show', compact('author'));
+        $articlesAuthor = DB::table('articles')
+        ->select('articles.id','title', 'content', 'articles.author_id')
+            ->join('authors', 'authors.id', '=', 'articles.author_id')
+            ->where('authors.id', $author->id)
+            ->paginate(5);     
+
+        return view('authors.show', ['author' => $author, 'articlesAuthor' => $articlesAuthor]);
     }
 
     /**
