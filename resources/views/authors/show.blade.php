@@ -76,7 +76,7 @@
             </div>
             @else
                 <div class="mb-3">
-                    <h4>There are no published articles for {{ $author->firstname.' '.$author->lastname }}</h4>
+                    <h4>No articles have been published by {{ $author->firstname.' '.$author->lastname }}</h4>
                 </div>
             @endif
         </div>
