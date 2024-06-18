@@ -28,10 +28,16 @@
                             <td>{{ $author->firstname}}</td>
                             <td>{{ $author->nickname ?? 'N/A' }}</td>
                             <td>{{ $author->mail != null ? $author->mail : 'N/A' }}</td>
-                            <th><a class="navbar-brand" href="{{ route('authors.show', $author) }}"><i
-                                        class="fa-solid fa-circle-user fa-xl"></i></i></a></th>
-                            <th><a class="navbar-brand" href="{{ route('authors.destroy', $author) }}"><i
-                                        class="fa-regular fa-trash-can fa-lg"></i></a></th>
+                            <th>
+                                <a class="navbar-brand" href="{{ route('authors.show', $author) }}">
+                                    <i class="fa-solid fa-circle-user fa-xl"></i>
+                                </a>
+                            </th>
+                            <th>
+                                <a class="navbar-brand" href="{{ route('authors.destroy', $author) }}">
+                                    <i class="fa-regular fa-trash-can fa-lg"></i>
+                                </a>
+                            </th>
                         </tr>
                         @endforeach
                     </tbody>
