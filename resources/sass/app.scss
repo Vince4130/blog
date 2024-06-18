@@ -1,0 +1,52 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Bootstrap icons
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@import '@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '@fortawesome/fontawesome-free/css/regular.css';
+@import '@fortawesome/fontawesome-free/css/solid.css';
+@import '@fortawesome/fontawesome-free/css/brands.css';
+
+.container {
+    width: 1000px;
+    margin: auto;
+}
+
+// .main {
+//     width: 1000px;
+//     margin: auto;
+// }
+
+// .page-link {
+//     color: black;
+// }
+
+// .page-link:hover {
+//     color: white;
+// }
+ul.pagination {
+    justify-content: right;
+    margin-right: 8px;
+}
+.pagination > li > a:hover {
+    color: black;
+}
+.pagination > li > a,
+.pagination > li > span {
+    color: black; // use your own color here
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: black;
+    border-color: black;
+}
