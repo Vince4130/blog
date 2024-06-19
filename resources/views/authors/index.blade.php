@@ -7,7 +7,7 @@
         @include('flash-message')
         <div class="card">
             <div class="card-body bg-light">
-                <h4>Authors</h4>
+                <h1 class="container__title">Authors</h1>
                 <!-- Liste -->
                @if (count($authors) > 0)
                 <table id="author__table" class="table table-light authortable table-hover">
@@ -53,10 +53,10 @@
                 @endif
             </div>
         </div>
-        <div class="mb-3 list__submit">
-            <a class="btn btn-dark" href="{{ route('authors.create') }}"><i class="fa-solid fa-user-plus fa-lg p-2"></i>Add
+        <div class="mb-3 container__link">
+            <a class="btn btn-dark container__link--width" href="{{ route('authors.create') }}"><i class="fa-solid fa-user-plus fa-lg p-2"></i>Add
                 an Author</a>
-            <a class="btn btn-dark" href="{{ route('articles.index') }}"><i
+            <a class="btn btn-dark container__link--width" href="{{ route('articles.index') }}"><i
                     class="fa-solid fa-newspaper fa-lg p-2"></i>Articles</a>
             <a class="navbar-brand" href="{{ route('home') }}"><i class="fas fa-home fa-xl"></i></a>
         </div>
