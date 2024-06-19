@@ -7,7 +7,7 @@
     <div class="container">
     <div class="card">
         <div class="card-body bg-light">
-            <h4>Author Details</h4>
+            <h1 class="container__title">Author Details</h1>
             <table id="author__table" class="table table-striped authortable">
                 <thead>
                     <tr>
@@ -39,9 +39,9 @@
             </table>
         </div>
     </div>
-    <div class="mb-3 list__submit">
-        <a class="btn btn-dark" href="{{ route('articles.create', ['author' => $author]) }}"><i class="fa-solid fa-folder-plus fa-lg p-2"></i>Add an article</a>
-        <a class="btn btn-dark" href="{{ route('authors.index') }}"><i class="fa-solid fa-rotate-left white p-2"></i>Back</a>
+    <div class="mb-3 container__link">
+        <a class="btn btn-dark container__link--width" href="{{ route('articles.create', ['author' => $author]) }}"><i class="fa-solid fa-folder-plus fa-lg p-2"></i>Add an article</a>
+    <a class="btn btn-dark container__link--width" href="{{ route('authors.index') }}"><i class="fa-solid fa-rotate-left white fa-lg p-2"></i>Authors List</a>
     </div>
     <div class="card">
         <div class="card-body bg-light">

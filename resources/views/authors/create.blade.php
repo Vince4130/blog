@@ -8,7 +8,7 @@
     @include('flash-message')
     <div class="card">
         <div class="card-body bg-light">
-            <h4>Add an Author</h4>
+            <h1 class="container__title">Add an Author</h1>
             <form action="{{ route('authors.store') }}" id="myForm" name="myForm" class="myForm" method="POST">
                 @csrf
 
@@ -46,9 +46,9 @@
                     <input class="form-control" type="text" name="mail" id="mail">
                 </div>
 
-                <div class="mb-3 add__submit">
-                    <button type="submit" class="btn btn-dark"><i class="fa-solid fa-database p-2"></i>Save</button>
-                    <button type="reset" class="btn btn-dark"><i class="fa-solid fa-rotate p-2"></i>Reset</button>
+                <div class="mb-3 container__link">
+                    <button type="submit" class="btn btn-dark container__link--submit"><i class="fa-solid fa-database p-2"></i>Save</button>
+                    <button type="reset" class="btn btn-dark container__link--submit"><i class="fa-solid fa-rotate p-2"></i>Reset</button>
                 </div>
             </form>
         </div>
