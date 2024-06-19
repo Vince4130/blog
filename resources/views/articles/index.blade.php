@@ -21,11 +21,11 @@
                     </h2>
                     <div id="collapse{{ $article->id }}" class="accordion-collapse collapse" data-bs-parent="#accordion{{ $article->id }}">
                         <div class="accordion-body">
-                            <div class="content">
+                            <div class="accordion__content">
                                 <strong>Content : </strong> 
                                 {!! nl2br(e($article->content)) !!}
                             </div>
-                            <div class="author">
+                            <div class="accordion__author">
                                 <strong>Author : </strong> 
                                 {{ $article->firstname.' '.$article->lastname }}
                             </div>

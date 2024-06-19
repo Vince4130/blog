@@ -29,6 +29,18 @@
 // .page-link:hover {
 //     color: white;
 // }
+
+.article {
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+    &--author {
+        column-gap: 23px;
+        margin-top: 5px;
+    }
+}
+
+// bootstrap pagination css 
 ul.pagination {
     justify-content: right;
     margin-right: 8px;
@@ -38,7 +50,7 @@ ul.pagination {
 }
 .pagination > li > a,
 .pagination > li > span {
-    color: black; // use your own color here
+    color: black;
 }
 
 .pagination > .active > a,

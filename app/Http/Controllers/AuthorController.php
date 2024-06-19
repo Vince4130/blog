@@ -76,7 +76,7 @@ class AuthorController extends Controller
         ->select('articles.id','title', 'content', 'articles.author_id')
             ->join('authors', 'authors.id', '=', 'articles.author_id')
             ->where('authors.id', $author->id)
-            ->paginate(5);     
+            ->paginate(4);     
 
         return view('authors.show', ['author' => $author, 'articlesAuthor' => $articlesAuthor]);
     }
