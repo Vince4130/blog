@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->foreignId('author_id')->constrained();
+            $table->foreignId('author_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }

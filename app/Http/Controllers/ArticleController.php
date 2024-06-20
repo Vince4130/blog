@@ -24,9 +24,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articlesAuthors = db::table('articles')
-            ->select('articles.id', 'title', 'content', 'authors.lastname', 'authors.firstname')
-            ->join('authors', 'authors.id', '=', 'articles.author_id')->paginate(5);
+        $articlesAuthors = DB::table('articles')
+            ->select('articles.id', 'title', 'content', 'authors.lastname', 'authors.firstname', 'articles.author_id')
+            ->leftJoin('authors', 'authors.id', '=', 'articles.author_id')->paginate(5);
 
         return view('articles.index', ['articlesAuthors' => $articlesAuthors]);
     }

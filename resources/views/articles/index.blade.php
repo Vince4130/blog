@@ -20,14 +20,18 @@
                         </button>
                     </h2>
                     <div id="collapse{{ $article->id }}" class="accordion-collapse collapse" data-bs-parent="#accordion{{ $article->id }}">
-                        <div class="accordion-body">
+                        <div class="accordion-body p-2">
                             <div class="article">
-                                <strong>Content : </strong> 
+                                <span><strong>Content : </strong></span>
                                 {!! nl2br(e($article->content)) !!}
                             </div>
                             <div class="article article--author">
                                 <strong>Author : </strong> 
-                                {{ $article->firstname.' '.$article->lastname }}
+                                @if($article->author_id == null)
+                                    Unknown Author
+                                @else 
+                                    {{ $article->firstname.' '.$article->lastname }}
+                                @endif
                             </div>
                         </div>
                     </div>
