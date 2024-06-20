@@ -73,7 +73,7 @@ class AuthorController extends Controller
     public function show(Author $author)
     {
         $articlesAuthor = DB::table('articles')
-        ->select('articles.id','title', 'content', 'articles.author_id')
+            ->select('articles.id','title', 'content', 'articles.author_id')
             ->join('authors', 'authors.id', '=', 'articles.author_id')
             ->where('authors.id', $author->id)
             ->paginate(4);     
