@@ -20,44 +20,41 @@
     &__title {
         text-align: center;
     }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        column-gap: 20px;
+        margin-top: 15px;
+        align-items: center;
+        &--width {
+            width: 180px;
+            height: 38px;
+        }
+        &--submit {
+            width: 100px;
+        }
+    }
 }
-
-// .main {
-//     width: 1000px;
-//     margin: auto;
-// }
-
-// .page-link {
-//     color: black;
-// }
-
-// .page-link:hover {
-//     color: white;
-// }
 
 .article {
     display: flex;
     column-gap: 15px;
     align-items: center;
+    
     &--author {
         column-gap: 23px;
         margin-top: 5px;
     }
-}
 
-
-.container__link {
-    display: flex;
-    justify-content: center;
-    column-gap: 20px;
-    margin-top: 15px;
-    align-items: center;
-    &--width {
-        width: 180px;
-        height: 38px;
+    &--update {
+        column-gap: 15px;
+        margin-top: 5px;
     }
-    &--submit {
-        width: 100px;
+
+    &--update > a:hover {
+        opacity: 0.75;
+        transition: opacity 1s;
     }
 }
 
