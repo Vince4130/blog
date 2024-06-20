@@ -4,7 +4,8 @@
 
 @section('content')
 
-    <div class="container">
+<div class="container">
+    @include('flash-message')
     <div class="card">
         <div class="card-body bg-light">
             <h1 class="container__title">Author Details</h1>
@@ -57,7 +58,7 @@
                         </button>
                     </h2>
                     <div id="collapse{{ $article->id }}" class="accordion-collapse collapse" data-bs-parent="#accordion{{ $article->id }}">
-                        <div class="accordion-body">
+                        <div class="accordion-body p-2">
                             <div class="article">
                                 <strong>Content : </strong> 
                                 {!! nl2br(e($article->content)) !!}
@@ -65,6 +66,15 @@
                             <div class=" article article--author">
                                 <strong>Author : </strong> 
                                 {{ $author->firstname.' '.$author->lastname }}
+                            </div>
+                            <div class="article article--update">
+                            <strong>Edit/Del : </strong> 
+                                <a class="navbar-brand" href="{{ route('articles.edit', $article->id) }}">
+                                    <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                                </a>
+                                <a class="navbar-brand" href="{{ route('articles.destroy', $article->id) }}">
+                                    <i class="fa-regular fa-trash-can fa-lg"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
