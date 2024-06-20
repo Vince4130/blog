@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Author;
 use App\Http\Requests\StoreArticleRequest;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -51,12 +52,13 @@ class ArticleController extends Controller
         $article->title     = $request->input('title');
         $article->content   = $request->input('content');
         $article->author_id = $request->input('author_id');
-        
+
         try {
 
             if ($article->save()) {
+                $author = $this->getAuthor($article);
                 session()->flash('success', "Your article has been successfully recorded");
-                return redirect(route('articles.index'));
+                return redirect(route('authors.show', $author));
             }
         } catch (\exception $e) {
             Log::error($e->getmessage());
@@ -80,7 +82,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('articles.edit', ['article' => $article]);
     }
 
     /**
@@ -88,7 +90,22 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $article->title   = $request->input('title');
+        $article->content = $request->input('content');
+
+        $author = $this->getAuthor($article);
+
+        try {
+            if ($article->save()) {
+                session()->flash('success', 'Your article has been successfully updated');
+            }
+        } catch (Exception $e) {
+            Log::error($e->getmessage());
+            session()->flash('error', "Something wen't wrong, your article hasn't been updated");
+        }
+
+        return redirect(route('authors.show', $author));
+
     }
 
     /**
@@ -96,6 +113,33 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $author = $this->getAuthor($article);
+
+        try {
+
+            if ($article->delete()) {
+                session()->flash('success', 'Your article has been successfully deleted');
+            }
+        } catch (Exception $e) {
+            Log::error($e->getmessage());
+            session()->flash('error', "Something wen't wrong, your article hasn't been deleted");
+        }
+        
+        return redirect(route('authors.show', $author));
+       
+    }
+
+    
+    /**
+     * getAuthor
+     *
+     * @param  mixed $article
+     * @return Author
+     */
+    public function getAuthor(Article $article) : Author
+    {
+        $author = Author::find($article->author_id);
+
+        return $author;
     }
 }
