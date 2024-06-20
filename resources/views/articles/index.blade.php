@@ -27,7 +27,11 @@
                             </div>
                             <div class="article article--author">
                                 <strong>Author : </strong> 
-                                {{ $article->firstname.' '.$article->lastname }}
+                                @if($article->author_id == null)
+                                    Unknown Author
+                                @else 
+                                    {{ $article->firstname.' '.$article->lastname }}
+                                @endif
                             </div>
                         </div>
                     </div>
