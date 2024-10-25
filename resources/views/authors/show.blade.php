@@ -30,9 +30,15 @@
                             </a>
                         </td>
                         <td>
-                            <a class="navbar-brand" href="mailto:{{ isset($author->mail) ? $author->mail : ''}}">
-                                <i class="fa-solid fa-envelope fa-lg"></i>
-                            </a>
+                            @if($author->mail !== null)
+                                <a class="navbar-brand" href="mailto:{{ isset($author->mail) ? $author->mail : ''}}">
+                                    <i class="fa-solid fa-envelope fa-lg"></i>
+                                </a>
+                            @else 
+                                <a href="#" class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Email inconnu">
+                                    <i class="fa-solid fa-envelope fa-lg"></i>
+                                </a>
+                            @endif
                         </td>
                         <td></td>
                     </tr>
