@@ -30,7 +30,7 @@
                                 @if($article->author_id == null)
                                     Unknown Author
                                 @else 
-                                    {{ $article->firstname.' '.$article->lastname }}
+                                    <a class="btn btn-link" href="{{ route('authors.show', $article->author_id) }}">{{ $article->firstname.' '.$article->lastname }}</a>    
                                 @endif
                             </div>
                         </div>
@@ -48,7 +48,7 @@
             @endif
             <div class="mb-3 container__link">
                 <a class="btn btn-dark container__link--width" href="{{ route('authors.index') }}"><i class="fa-solid fa-user-group fa-lg p-2"></i>Authors</a>
-                <a class="navbar-brand" href="{{ route('home') }}"><i class="fas fa-home fa-xl"></i></a>
+                <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Home" href="{{ route('home') }}"><i class="fas fa-home fa-xl"></i></a>
             </div>
         </div>
     </div>

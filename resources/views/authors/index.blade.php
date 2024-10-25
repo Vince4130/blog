@@ -29,12 +29,12 @@
                             <td>{{ $author->nickname ?? 'N/A' }}</td>
                             <td>{{ $author->mail != null ? $author->mail : 'N/A' }}</td>
                             <th>
-                                <a class="navbar-brand" href="{{ route('authors.show', $author) }}">
+                                <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Edit" href="{{ route('authors.show', $author) }}">
                                     <i class="fa-solid fa-circle-user fa-xl"></i>
                                 </a>
                             </th>
                             <th>
-                                <a class="navbar-brand" href="{{ route('authors.destroy', $author) }}">
+                                <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Delete" href="{{ route('authors.destroy', $author) }}">
                                     <i class="fa-regular fa-trash-can fa-lg"></i>
                                 </a>
                             </th>
@@ -58,7 +58,7 @@
                 an Author</a>
             <a class="btn btn-dark container__link--width" href="{{ route('articles.index') }}"><i
                     class="fa-solid fa-newspaper fa-lg p-2"></i>Articles</a>
-            <a class="navbar-brand" href="{{ route('home') }}"><i class="fas fa-home fa-xl"></i></a>
+            <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Home" href="{{ route('home') }}"><i class="fas fa-home fa-xl"></i></a>
         </div>
     </div>
     {{-- <script>
