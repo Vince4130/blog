@@ -31,11 +31,11 @@
                         </td>
                         <td>
                             @if($author->mail !== null)
-                                <a class="navbar-brand" href="mailto:{{ isset($author->mail) ? $author->mail : ''}}">
+                                <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Mail to" href="mailto:{{ isset($author->mail) ? $author->mail : ''}}">
                                     <i class="fa-solid fa-envelope fa-lg"></i>
                                 </a>
                             @else 
-                                <a href="#" class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Email inconnu">
+                                <a href="#" class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Unknown email">
                                     <i class="fa-solid fa-envelope fa-lg"></i>
                                 </a>
                             @endif
