@@ -23,7 +23,7 @@
 
                 <div class="mb-3">
                     <label for="nickname" class="form-label">Nickname :</label>
-                    <input type="text" class="form-control" id="nickname" name="nickname" value="{{ $author->nickname ?? 'N/A' }}">
+                    <input type="text" class="form-control" id="nickname" name="nickname" value="{{ $author->nickname ?? null }}" placeholder="{{ $author->mail ?? 'N/A' }}">
                 </div>
 
                 <div class="mb-3">
@@ -33,7 +33,7 @@
 
                 <div class="mb-3">
                     <label for="mail" class="form-label">Mail adress :</label>
-                    <input class="form-control" type="text" name="mail" id="mail" value="{{ $author->mail ?? 'N/A'}}">
+                    <input class="form-control" type="text" name="mail" id="mail" value="{{ $author->mail ?? null}}" placeholder="{{ $author->mail ?? 'N/A' }}">
                 </div>
 
                 <div class="mb-3 container__link">
