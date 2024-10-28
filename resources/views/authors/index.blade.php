@@ -34,10 +34,27 @@
                                 </a>
                             </th>
                             <th>
-                                <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Delete" href="{{ route('authors.destroy', $author) }}">
+                                <a class="navbar-brand" data-bs-trigger="hover" title="Delete" data-bs-toggle="modal" data-bs-title="Delete" data-bs-target="#delAuthor{{ $author->id }}">
                                     <i class="fa-regular fa-trash-can fa-lg"></i>
                                 </a>
                             </th>
+                            <div class="modal fade" id="delAuthor{{ $author->id }}" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Delete Author</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Do you want to delete the author {{ $author->firstname.' '.$author->lastname }} ?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a class="btn btn-dark" href="{{ route('authors.destroy', $author) }}">Yes</a>
+                                            <a class="btn btn-dark" data-bs-dismiss="modal" aria-label="close">No</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </tr>
                         @endforeach
                     </tbody>
