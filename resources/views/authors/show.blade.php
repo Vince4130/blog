@@ -74,14 +74,31 @@
                                 {{ $author->firstname.' '.$author->lastname }}
                             </div>
                             <div class="article article--update">
-                            <strong>Edit/Del : </strong> 
+                                <strong>Edit/Del : </strong> 
                                 <a class="navbar-brand" href="{{ route('articles.edit', $article->id) }}">
                                     <i class="fa-solid fa-pen-to-square fa-lg"></i>
                                 </a>
-                                <a class="navbar-brand" href="{{ route('articles.destroy', $article->id) }}">
+                                <a class="navbar-brand" data-bs-toggle="modal" data-bs-target="#delArticle{{ $article->id }}">
                                     <i class="fa-regular fa-trash-can fa-lg"></i>
                                 </a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="delArticle{{ $article->id }}" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Delete Article</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Do you want to delete the article "{{ $article->title }}" writen by {{ $author->firstname.' '.$author->lastname }} ?
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-dark" href="{{ route('articles.destroy', $article->id) }}">Yes</a>
+                            <a class="btn btn-dark" data-bs-dismiss="modal" aria-label="close">No</a>
                         </div>
                     </div>
                 </div>
