@@ -5,6 +5,7 @@
 @section('content')
 
 <div class="container">
+    @include('flash-message')
     <div class="card">
         <div class="card-body bg-light">
             <h1 class="container__title">Update your Article</h1>

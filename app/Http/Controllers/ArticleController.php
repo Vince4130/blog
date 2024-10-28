@@ -90,22 +90,30 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $article->title   = $request->input('title');
-        $article->content = $request->input('content');
+        
+        if($article->title == $request->input('title') && $article->content == $request->input('content')) {
+            
+            session()->flash('info', "No changes have been made");
+            return view('articles.edit', compact('article'));
 
-        $author = $this->getAuthor($article);
+        } else {
+            
+            $article->title   = $request->input('title');
+            $article->content = $request->input('content');
 
-        try {
-            if ($article->save()) {
-                session()->flash('success', 'Your article has been successfully updated');
+            $author = $this->getAuthor($article);
+
+            try {
+                if ($article->save()) {
+                    session()->flash('success', 'Your article has been successfully updated');
+                }
+            } catch (Exception $e) {
+                Log::error($e->getmessage());
+                session()->flash('error', "Something wen't wrong, your article hasn't been updated");
             }
-        } catch (Exception $e) {
-            Log::error($e->getmessage());
-            session()->flash('error', "Something wen't wrong, your article hasn't been updated");
+
+            return redirect(route('authors.show', $author));
         }
-
-        return redirect(route('authors.show', $author));
-
     }
 
     /**
