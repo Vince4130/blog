@@ -35,5 +35,8 @@
             </form>
         </div>
     </div>
+    <div class="mb-3 container__link">
+        <a class="btn btn-dark" data-bs-toggle="tooltip" data-bs-title="Previous" href="{{ route('authors.show', ['author' => $author]) }}"><i class="fa-solid fa-backward-step"></i></a>
+    </div>
 </div>
 @endsection

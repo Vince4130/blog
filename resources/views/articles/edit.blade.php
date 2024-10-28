@@ -27,5 +27,8 @@
             </form>
         </div>
     </div>
+    <div class="mb-3 container__link">
+        <a class="btn btn-dark" data-bs-toggle="tooltip" data-bs-title="Previous" href="{{ url()->previous() }}"><i class="fa-solid fa-backward-step"></i></a>
+    </div>
 </div>
 @endsection
