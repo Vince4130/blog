@@ -55,13 +55,13 @@ class AuthorController extends Controller
         try {
 
             if($author->save()) {
-                session()->flash('success', "Your have been successfully recorded");
+                session()->flash('success', "The author have been successfully recorded");
                 return redirect(route('authors.index'));
             }
 
         } catch (\exception $e) {
             Log::error($e->getmessage());
-            session()->flash('error', "Something wen't wrong, your haven't been recorded");
+            session()->flash('error', "Something wen't wrong, the author haven't been recorded");
         }
 
         return redirect(route('authors.create'));
@@ -94,15 +94,32 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
-        $author->lastname  = $request->input('lastname');
-        $author->firstname = $request->input('firstname');
-        $author->nickname  = $request->input('nickname');
-        $author->birth     = $request->input('birth');
-        $author->mail      = $request->input('mail');
+        if($author->lastname  == $request->input('lastname') && $author->firstname == $request->input('firstname') && $author->nickname  == $request->input('nickname') && $author->birth     == $request->input('birth') && $author->mail      == $request->input('mail') ) {
+            session()->flash('info', "No changes have been made");
+            return view('authors.edit', compact('author'));
+        }
+        else {
+            $author->lastname  = $request->input('lastname');
+            $author->firstname = $request->input('firstname');
+            $author->nickname  = $request->input('nickname');
+            $author->birth     = $request->input('birth');
+            $author->mail      = $request->input('mail');
+            // $author->save();
+            try {
+                
+                if($author->save()) {
+                    session()->flash('success', "The author have been successfully updated");
+                }
 
-        $author->save();
+            } catch (\exception $e) {
 
-        return redirect(route('authors.index'));
+                Log::error($e->getmessage());
+                session()->flash('error', "Something wen't wrong, the author haven't been updated");
+            }
+
+            return redirect(route('authors.index'));
+        }
+        
     }
 
     /**
@@ -110,8 +127,19 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        $author->delete();
+        // $author->delete();
 
+        try {
+
+            if($author->delete()) {
+                session()->flash('success', "The author have been successfully deleted");
+                return redirect(route('authors.index'));
+            }
+
+        } catch (\exception $e) {
+            Log::error($e->getmessage());
+            session()->flash('error', "Something wen't wrong, the author haven't been deleted");
+        }
         return redirect(route('authors.index'));
     }
 }
