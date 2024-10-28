@@ -5,6 +5,7 @@
 @section('content')
 
 <div class="container">
+    @include('flash-message')
     <div class="card">
         <div class="card-body bg-light">
             <h1 class="container__title">Update the Author</h1>
@@ -23,7 +24,7 @@
 
                 <div class="mb-3">
                     <label for="nickname" class="form-label">Nickname :</label>
-                    <input type="text" class="form-control" id="nickname" name="nickname" value="{{ $author->nickname ?? null }}" placeholder="{{ $author->mail ?? 'N/A' }}">
+                    <input type="text" class="form-control" id="nickname" name="nickname" value="{{ $author->nickname ?? null }}" placeholder="{{ $author->nickname ?? 'N/A' }}">
                 </div>
 
                 <div class="mb-3">
