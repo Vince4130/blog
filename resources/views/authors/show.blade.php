@@ -8,7 +8,7 @@
     @include('flash-message')
     <div class="card">
         <div class="card-body bg-light">
-            <h1 class="container__title">Author Details</h1>
+            <h1 class="container__title">Author</h1>
             <table id="author__table" class="table table-striped authortable">
                 <thead>
                     <tr>
@@ -25,7 +25,7 @@
                         <td>{{ $author->firstname }}</td>
                         <td>{{ isset($author->nickname) ?  $author->nickname : 'N/A' }}</td>
                         <td>
-                            <a class="navbar-brand" href="{{ route('authors.edit', $author) }}">
+                            <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Details/Update" href="{{ route('authors.edit', $author) }}">
                                 <i class="fa-solid fa-pen-to-square fa-lg"></i>
                             </a>
                         </td>
@@ -48,7 +48,7 @@
     </div>
     <div class="mb-3 container__link">
         <a class="btn btn-dark container__link--width" href="{{ route('articles.create', ['author' => $author]) }}"><i class="fa-solid fa-folder-plus fa-lg p-2"></i>Add an article</a>
-    <a class="btn btn-dark container__link--width" href="{{ route('authors.index') }}"><i class="fa-solid fa-rotate-left white fa-lg p-2"></i>Authors List</a>
+        <a class="btn btn-dark container__link--width" href="{{ route('authors.index') }}"><i class="fa-solid fa-rotate-left white fa-lg p-2"></i>Authors List</a>
     </div>
     <div class="card">
         <div class="card-body bg-light">
