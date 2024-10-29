@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="mb-3 container__link">
-        <a class="btn btn-dark" data-bs-toggle="tooltip" data-bs-title="Previous" href="{{ url()->previous() }}"><i class="fa-solid fa-backward-step"></i></a>
+        <a class="btn btn-dark" data-bs-toggle="tooltip" data-bs-title="Previous" href="{{ route('authors.show', ['author' => $article->author_id]) }}"><i class="fa-solid fa-backward-step"></i></a>
     </div>
 </div>
 @endsection
