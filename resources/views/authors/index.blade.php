@@ -34,9 +34,9 @@
                                 </a>
                             </th>
                             <th>
-                                <a class="navbar-brand" data-bs-trigger="hover" title="Delete" data-bs-toggle="modal" data-bs-title="Delete" data-bs-target="#delAuthor{{ $author->id }}">
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><a class="navbar-brand" data-bs-toggle="modal" data-bs-target="#delAuthor{{ $author->id }}">
                                     <i class="fa-regular fa-trash-can fa-lg"></i>
-                                </a>
+                                </a></span>
                             </th>
                             <div class="modal fade" id="delAuthor{{ $author->id }}" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
                                 <div class="modal-dialog">
