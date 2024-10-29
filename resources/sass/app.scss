@@ -37,6 +37,17 @@
     }
 }
 
+.author-link {
+    text-decoration: none;
+    color: #052c65;
+    background-color: #cfe2ff;
+    &:hover {
+        font-weight: bold;
+        color: #052c65;
+        background-color: #cfe2ff;
+    } 
+} 
+
 .article {
     display: flex;
     column-gap: 15px;

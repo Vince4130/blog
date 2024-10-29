@@ -30,7 +30,7 @@
                                 @if($article->author_id == null)
                                     Unknown Author
                                 @else 
-                                    <a class="btn btn-link" href="{{ route('authors.show', $article->author_id) }}">{{ $article->firstname.' '.$article->lastname }}</a>    
+                                    <a class="btn btn-link author-link" href="{{ route('authors.show', $article->author_id) }}">{{ $article->firstname.' '.$article->lastname }}</a>    
                                 @endif
                             </div>
                         </div>
