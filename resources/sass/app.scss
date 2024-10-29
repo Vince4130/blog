@@ -37,10 +37,29 @@
     }
 }
 
+.author-table > thead > tr > th:nth-child(4), th:nth-child(5) {
+    text-align: center;
+
+}
+
+.author-table > tbody > tr > td:nth-child(4), td:nth-child(5) {
+    text-align: center;
+}
+
+.author-table-index > thead > tr > th:nth-child(5), th:nth-child(6) {
+    text-align: center;
+
+}
+
+.author-table-index > tbody > tr > td:nth-child(5), td:nth-child(6) {
+    text-align: center;
+}
+
 .author-link {
     text-decoration: none;
     color: #052c65;
     background-color: #cfe2ff;
+    width: 150px;
     &:hover {
         font-weight: bold;
         color: #052c65;

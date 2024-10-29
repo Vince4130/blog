@@ -10,7 +10,7 @@
                 <h1 class="container__title">Authors</h1>
                 <!-- Liste -->
                @if (count($authors) > 0)
-                <table id="author__table" class="table table-light authortable table-hover">
+                <table id="author__table" class="table table-light author-table-index table-hover">
                     <thead>
                         <tr>
                             <th>Lastname</th>

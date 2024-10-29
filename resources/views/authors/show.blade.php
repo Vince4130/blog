@@ -9,7 +9,7 @@
     <div class="card">
         <div class="card-body bg-light">
             <h1 class="container__title">Author</h1>
-            <table id="author__table" class="table table-striped authortable">
+            <table id="author__table" class="table table-striped author-table">
                 <thead>
                     <tr>
                         <th>Lastname</th>
@@ -40,7 +40,6 @@
                                 </a>
                             @endif
                         </td>
-                        <td></td>
                     </tr>
                 </tbody>
             </table>
