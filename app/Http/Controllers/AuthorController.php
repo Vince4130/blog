@@ -59,7 +59,7 @@ class AuthorController extends Controller
                 return redirect(route('authors.index'));
             }
 
-        } catch (\exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getmessage());
             session()->flash('error', "Something wen't wrong, the author haven't been recorded");
         }
@@ -111,7 +111,7 @@ class AuthorController extends Controller
                     session()->flash('success', "The author have been successfully updated");
                 }
 
-            } catch (\exception $e) {
+            } catch (Exception $e) {
 
                 Log::error($e->getmessage());
                 session()->flash('error', "Something wen't wrong, the author haven't been updated");
@@ -136,7 +136,7 @@ class AuthorController extends Controller
                 return redirect(route('authors.index'));
             }
 
-        } catch (\exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getmessage());
             session()->flash('error', "Something wen't wrong, the author haven't been deleted");
         }
