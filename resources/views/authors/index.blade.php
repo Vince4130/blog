@@ -29,12 +29,12 @@
                             <td>{{ $author->nickname ?? 'N/A' }}</td>
                             <td>{{ $author->mail != null ? $author->mail : 'N/A' }}</td>
                             <th>
-                                <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Edit" href="{{ route('authors.show', $author) }}">
+                                <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Edit" href="{{ route('authors.show', $author->id) }}">
                                     <i class="fa-solid fa-circle-user fa-xl"></i>
                                 </a>
                             </th>
                             <th>
-                                <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Delete" href="{{ route('authors.destroy', $author) }}">
+                                <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Delete" href="{{ route('authors.destroy', $author->id) }}">
                                     <i class="fa-regular fa-trash-can fa-lg"></i>
                                 </a>
                             </th>
@@ -43,9 +43,9 @@
                     </tbody>
                 </table>
                 <!-- Pagination Links -->
-                <div>
+                {{-- <div>
                     {{ $authors->links() }}
-                </div>
+                </div> --}}
                 @else
                 <div class="mb-3">
                     <h4>No author yet registered</h4>
@@ -61,12 +61,12 @@
             <a class="navbar-brand" data-bs-toggle="tooltip" data-bs-title="Home" href="{{ route('home') }}"><i class="fas fa-home fa-xl"></i></a>
         </div>
     </div>
-    {{-- <script>
+    <script>
     let mytable = new DataTable('#author__table', {
         order: [
             [0, 'asc']
         ],
         responsive: true
     });
-</script> --}}
+</script>
 @endsection
