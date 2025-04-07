@@ -97,7 +97,7 @@ class ArticleController extends Controller
 
         try {
             if ($article->save()) {
-                session()->flash('success', 'Your article has been successfully updated');
+                session()->flash('success', "Your article has been successfully updated");
             }
         } catch (Exception $e) {
             Log::error($e->getmessage());
