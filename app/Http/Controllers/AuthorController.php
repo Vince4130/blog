@@ -55,13 +55,13 @@ class AuthorController extends Controller
         try {
 
             if($author->save()) {
-                session()->flash('success', "Your have been successfully recorded");
+                session()->flash('success', "You have been successfully recorded");
                 return redirect(route('authors.index'));
             }
 
         } catch (\exception $e) {
             Log::error($e->getmessage());
-            session()->flash('error', "Something wen't wrong, your haven't been recorded");
+            session()->flash('error', "Something wen't wrong, you haven't been recorded");
         }
 
         return redirect(route('authors.create'));
@@ -100,9 +100,20 @@ class AuthorController extends Controller
         $author->birth     = $request->input('birth');
         $author->mail      = $request->input('mail');
 
-        $author->save();
+        $articlesAuthor = $this->getArticles($author->id);
 
-        return redirect(route('authors.index'));
+        try {
+            if ($author->save()) {
+                session()->flash('success', 'Your profile has been successfully updated');
+            }
+        } catch (Exception $e) {
+            Log::error($e->getmessage());
+            session()->flash('error', "Something wen't wrong, your profile hasn't been updated");
+        }
+        
+
+        return redirect(route('authors.show', $author));
+        // return view('authors.show', ['author' => $author, 'articlesAuthor' => $articlesAuthor]);
     }
 
     /**
@@ -113,5 +124,16 @@ class AuthorController extends Controller
         $author->delete();
 
         return redirect(route('authors.index'));
+    }
+
+
+    public function getArticles($author)
+    {
+        $articles = DB::table('articles')
+                        ->select('*')
+                        ->where('author_id', $author)
+                        ->paginate(4);
+
+        return $articles;
     }
 }
