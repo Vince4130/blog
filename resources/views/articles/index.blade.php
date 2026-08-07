@@ -28,7 +28,7 @@
                             <div class="article article--author">
                                 <strong>Author : </strong> 
                                 @if($article->author_id == null)
-                                    Unknown Author
+                                    Unknown Author !
                                 @else 
                                     <a class="btn btn-link" href="{{ route('authors.show', $article->author_id) }}">{{ $article->firstname.' '.$article->lastname }}</a>    
                                 @endif
